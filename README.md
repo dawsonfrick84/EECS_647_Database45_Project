@@ -1,1 +1,26 @@
 # EECS_647_Database45_Project
+
+CREATE TABLE Users
+(
+username VARCHAR(255) PRIMARY KEY NOT NULL UNIQUE,
+email VARCHAR(255) NOT NULL UNIQUE,
+password VARCHAR(255) NOT NULL,
+permissions BOOLEAN
+);
+
+CREATE TABLE Orders
+(
+order_id INT PRIMARY KEY AUTO_INCREMENT,
+total INT,
+shipping INT,
+address VARCHAR(255) NOT NULL,
+payment VARCHAR(255) NOT NULL
+);
+
+
+CREATE TABLE Reviews
+(
+post_id INT AUTO_INCREMENT,
+rating DOUBLE,
+content TEXT,
+);
