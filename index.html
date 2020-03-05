@@ -4,9 +4,15 @@
     </head>
 <body>
 <h1>Create User</h1><br>
-  <form action="CreateUser.php" method="post">
+<link rel="stylesheet" type="text/css" href="style.css">
+<script src="checkForm.js"></script>
+  <form action="CreateUser.php" method="post" onsubmit="return checkSubmit();">
     <b>User ID:&nbsp&nbsp</b><input type="text" id="user" name="user" required pattern="\S+" title="No spaces"><br><br>
+    <b>Password:&nbsp&nbsp</b><input type="password" id="pass" name="pass" required pattern="\S+" title="No spaces"><br><br>
+    <b>Password:&nbsp&nbsp</b><input type="password" id="conf_pass"><br>
+    <button onclick="validate()">Validate</button><br>
     <input type="submit" value="Submit">
   </form>
+  <button onclick="reset()">Reset Fields</button></center>
 </body>
 </html>
