@@ -37,4 +37,5 @@ function reset(){
       document.getElementById("user").value = "";
       document.getElementById("pass").value = "";
       document.getElementById("conf_pass").value = "";
+      document.getElementById("email").value = "";
 }
