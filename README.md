@@ -1,4 +1,6 @@
 # EECS_647_Database45_Project
+mysql -h mysql.eecs.ku.edu -u dawsonfrick84 -p
+
 CREATE TABLE Users
 (
 username VARCHAR(255) PRIMARY KEY NOT NULL UNIQUE,
