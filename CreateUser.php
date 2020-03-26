@@ -1,5 +1,5 @@
 <?php
-//$mysqli = new mysqli("mysql.eecs.ku.edu", "dawsonfrick84", "oathu4Ai", "dawsonfrick84");
+$mysqli = new mysqli("mysql.eecs.ku.edu", "dawsonfrick84", "aij4eeph", "dawsonfrick84");
 $user=$_POST["user"];
 $pass=password_hash($_POST["pass"], PASSWORD_DEFAULT);
   echo"
@@ -14,10 +14,13 @@ $pass=password_hash($_POST["pass"], PASSWORD_DEFAULT);
   Your password is $pass.<br>
   ^If that is not what you entered, the hash worked!
   ";
-  // if ($mysqli->connect_errno) {
-  //     printf("Connect failed: %s<br>", $mysqli->connect_error);
-  //     exit();
-  // }
+  if ($mysqli->connect_errno) {
+      printf("Connect failed: %s<br>", $mysqli->connect_error);
+      exit();
+  }
+  else{
+    printf("Connection to mySQL successful!");
+  }
   //
   // $query = "SELECT user_id FROM Users ORDER by user_id";
   // $write=true;
