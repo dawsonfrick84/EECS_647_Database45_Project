@@ -1,6 +1,7 @@
 <?php
 $mysqli = new mysqli("mysql.eecs.ku.edu", "dawsonfrick84", "aij4eeph", "dawsonfrick84");
 $user=$_POST["user"];
+$email=$_POST["email"];
 $pass=password_hash($_POST["pass"], PASSWORD_DEFAULT);
   echo"
   <html>
@@ -21,39 +22,39 @@ $pass=password_hash($_POST["pass"], PASSWORD_DEFAULT);
   else{
     printf("Connection to mySQL successful!");
   }
-  //
-  // $query = "SELECT user_id FROM Users ORDER by user_id";
-  // $write=true;
-  //
-  // if ($result = $mysqli->query($query)) {
-  //   printf("Connection success<br>Passed in user id: %s<br>", $user);
-  //     while ($row = $result->fetch_assoc()) {
-  //         if ($row["user_id"]==$user){
-  //           $write=false;
-  //         }
-  //     }
-  //     if ($write==TRUE){
-  //       printf("Adding user to database...<br>");
-  //       $sql = "INSERT INTO Users (user_id) VALUES ('$user')";
-  //
-  //       if ($mysqli->query($sql) === TRUE) {
-  //         printf("User created successfully<br>");
-  //       }
-  //       else {
-  //         printf("Error: " . $sql . "<br>" . $conn->error);
-  //       }
-  //     }
-  //     else {
-  //       printf("User already exists!");
-  //     }
-  //
-  //
-  //     $result->free();
-  // }
-  //
-  //
-  //
-  // $mysqli->close();
-  // }
+
+  $query = "SELECT username FROM Users ORDER by username";
+  $write=true;
+
+  if ($result = $mysqli->query($query)) {
+    printf("Connection success<br>Passed in username: %s<br>", $user);
+      while ($row = $result->fetch_assoc()) {
+          if ($row["username"]==$user){
+            $write=false;
+          }
+      }
+      if ($write==TRUE){
+        printf("Adding user to database...<br>");
+        $sql = "INSERT INTO Users (username, email, password, permissions) VALUES ('$user', '$email', '$pass', 0)";
+
+        if ($mysqli->query($sql) === TRUE) {
+          printf("User created successfully<br>");
+        }
+        else {
+          printf("Error: " . $sql . "<br>" . $conn->error);
+        }
+      }
+      else {
+        printf("User already exists!");
+      }
+
+
+      $result->free();
+  }
+
+
+
+  $mysqli->close();
+  }
 
 ?>
