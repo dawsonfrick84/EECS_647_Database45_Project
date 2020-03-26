@@ -20,7 +20,17 @@ payment VARCHAR(255) NOT NULL
 
 CREATE TABLE Reviews
 (
-post_id INT AUTO_INCREMENT,
+post_id INT PRIMARY KEY AUTO_INCREMENT,
 rating DOUBLE,
 content TEXT,
 );
+
+CREATE TABLE Items
+(
+  item_id INT PRIMARY KEY AUTO_INCREMENT,
+  name VARCHAR(255) NOT NULL,
+  stock DOUBLE,
+  price DOUBLE,
+  rating DOUBLE,
+  description TEXT,
+)
