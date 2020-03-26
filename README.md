@@ -40,3 +40,5 @@ FROM Users
 INNER JOIN Orders
 ON Orders.user=Users.username
 ORDER BY Users.username;
+
+SELECT * FROM Users;
