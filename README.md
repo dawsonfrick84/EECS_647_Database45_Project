@@ -1,5 +1,4 @@
 # EECS_647_Database45_Project
-
 CREATE TABLE Users
 (
 username VARCHAR(255) PRIMARY KEY NOT NULL UNIQUE,
@@ -11,6 +10,7 @@ permissions BOOLEAN
 CREATE TABLE Orders
 (
 order_id INT PRIMARY KEY AUTO_INCREMENT,
+user VARCHAR(255) NOT NULL,
 total INT,
 shipping INT,
 address VARCHAR(255) NOT NULL,
@@ -22,7 +22,7 @@ CREATE TABLE Reviews
 (
 post_id INT PRIMARY KEY AUTO_INCREMENT,
 rating DOUBLE,
-content TEXT,
+content TEXT
 );
 
 CREATE TABLE Items
@@ -32,5 +32,11 @@ CREATE TABLE Items
   stock DOUBLE,
   price DOUBLE,
   rating DOUBLE,
-  description TEXT,
-)
+  description TEXT
+);
+
+SELECT Users.username, Orders.user
+FROM Users
+INNER JOIN Orders
+ON Orders.user=Users.username
+ORDER BY Users.username;
