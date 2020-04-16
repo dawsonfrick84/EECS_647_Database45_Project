@@ -39,6 +39,7 @@ $write=false;
       {
         if($mysqli->query("INSERT INTO Items (name, stock, price, picture, description, ISBN) VALUES ('$itemname', $instock, $price,'$picture','$description', '$isbn')") === TRUE) {
         echo "<h2>Item added.</h2><br>"; //$price
+$mysqli->query("INSERT INTO Sells (item_id, username) VALUES ('$username')");
         }
         else{
         printf("Error: " . $sql . "<br>" . $conn->error);
