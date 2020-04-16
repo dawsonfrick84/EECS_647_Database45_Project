@@ -1,7 +1,7 @@
 <html>
 
 <head>
-    <title>AddingItem's Home Page</title>
+    <title>Add Item</title>
 </head>
 
 <body>
@@ -9,32 +9,36 @@
     <form action="addingItems.php" method="post">
         <div class="a">
         <br>
-        User's name:
+        Username:
         <br>
-        <input type="username" id="user" name="user" required pattern="\S+" title="No spaces" style="width:200px; height:25px" >
+        <input type="text" id="user" name="user" required pattern="\S+" title="No spaces" style="width:200px; height:25px" >
+        <br>
+        Password:
+        <br>
+        <input type="password" id="pass" name="pass" required style="width:200px; height:25px" >
+        <br><br><br>
+        Item Name:
+        &emsp;&emsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <input name="ItemName" id="ItemName" required type="text">
         <br><br>
         Price:
         &emsp;&emsp;&emsp;&emsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         <input name="ItemPrice" id="ItemPrice" required type="number" step=".01" min=.01>
         <br><br>
-        Item Name:
-        &emsp;&emsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <input name="ItemName" id="ItemName" required type="text">
-        <br><br>
         ISBN (if textbook):&nbsp;&nbsp;
-        <input name="ISBN" id="ISBN" type="number" pattern=".{0}|([0-9]{10,13})" title="Leave blank or must be 10-13 digits">
+        <input name="ISBN" id="ISBN" type="text" pattern=".{0}|([0-9].{10,13})" title="Leave blank or must be 10-13 digits">
         <br><br>
-        In-Stock:
-        &emsp;&emsp;&emsp;&emsp;&nbsp;&nbsp;
+        # In-Stock:
+        &emsp;&emsp;&emsp;&nbsp;&nbsp;
         <input name="In-Stock" id="In-Stock" required type="number" step="1" min="1" pattern="\d*">
         <br><br>
-        Picture:
-        &emsp;&emsp;&emsp;&emsp;&emsp;
+        Picture (url):
+        &emsp;&emsp;&nbsp;&nbsp;&nbsp;
         <input name="Picture" id="Picture" required type="url" title="Enter a picture's url">
         <br><br>
         Description:
         &emsp;&emsp;&emsp;&nbsp;
-        <input type="text" required name="Description" id="Description" style="width:1000px; height:40px">
+        <input type="text" required name="Description" id="Description" style="width:800px; height:40px">
         <br><br><br>
         </div>
         <input type="submit" value="Submit" style="width:100px; height:25px" >
@@ -42,5 +46,7 @@
         <input type="reset" value="Reset"style="width:100px; height:25px" >
     </form>
 </body>
+<h3><a href="buyItems.php">Shop School Supplies and Items</a></h3>
+<h3><a href="index.html">Return Home</a></h3>
 
 </html>
