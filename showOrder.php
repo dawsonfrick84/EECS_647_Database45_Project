@@ -91,6 +91,8 @@ $cost = 0;
         </script>
         <br><br>
         <h3><a href='index.html'>Return to Home Page</a></h3>
+        <h3><a href='buyItems.php'>Shop For More School Supplies and Items</a></h3>
+        <h3><a href='addingItems.html'>Add Items to the Store</a></h3>
         ";
       }
 
