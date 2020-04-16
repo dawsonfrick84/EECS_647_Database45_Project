@@ -22,7 +22,7 @@ $instock  = $_POST["In-Stock"];
 $picture  = $_POST["Picture"];
 $description = $_POST["Description"];
 
-$write=true;
+$write=false;
     if($result = $mysqli->query("SELECT username FROM Users"))
     {
     while ($row = $result->fetch_assoc()) {
