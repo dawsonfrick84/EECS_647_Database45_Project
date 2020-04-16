@@ -13,8 +13,8 @@ CREATE TABLE Orders
 (
 order_id INT PRIMARY KEY AUTO_INCREMENT,
 user VARCHAR(255) NOT NULL,
-total INT,
-shipping INT,
+total DOUBLE,
+shipping DOUBLE,
 address VARCHAR(255) NOT NULL,
 payment VARCHAR(255) NOT NULL
 );
@@ -45,7 +45,7 @@ CREATE TABLE Sells
 (
   item_id INT PRIMARY KEY,
   username VARCHAR(255) NOT NULL
-)
+);
 
 SELECT * FROM Users;
 
