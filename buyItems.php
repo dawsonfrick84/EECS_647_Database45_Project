@@ -25,22 +25,16 @@ echo"
       //printf("Connection success<br>Passed in username: %s<br>", $user);
         while ($row = $result->fetch_assoc()) {
           echo"
-          <center><figure>
-           <center><b>Item ".$row["item_id"].": ".$row["name"]." </b></center>
-            <img class='item' src='".$row["picture"]."' width='200' height='200'><br>
+          <figure id='1'>
+           <b>Item ".$row["item_id"].": ".$row["name"]." </b><br>
+            <img class='item' src='".$row["picture"]."' width='125' height='125'><br>
               <input type='checkbox' id='".$row["item_id"]."' name='".$row["name"]."' value='".$row["item_id"]."'>$".$row["price"]."<br>
               Quantity: <input type='number' id='q".$row["item_id"]."' name='q".$row["name"]."' value='q".$row["item_id"]."' min='1' max='".$row["stock"]."' size=3><br>
-              </figure></center>";
+              Description: ".$row["description"]." <br>
+            </figure>";
           }
     }
     echo"
-    <center><figure>
-        <form action='showOrder.php' method='post'>
-          <center><b>item2</b></center>
-          <img class='item' src='' width='200' height='200'><br>
-            <input type='checkbox' id='2' name='2' value='item2'>$9.99<br>
-            Quantity: <input type='number' id='q2' name='q2' value='q2' min='1' max='99' size=3><br>
-    </figure></center>
   </div>
   <div class='clear'></div><br><br><br>
   <p><b>Checkout</b></p>
