@@ -24,16 +24,18 @@ CREATE TABLE Reviews
 (
 post_id INT PRIMARY KEY AUTO_INCREMENT,
 rating DOUBLE,
-content TEXT
+content TEXT,
+item_id INT
 );
 
 CREATE TABLE Items
 (
   item_id INT PRIMARY KEY AUTO_INCREMENT,
   name VARCHAR(255) NOT NULL,
-  stock DOUBLE,
+  stock INT,
   price DOUBLE,
   rating DOUBLE,
+  picture VARCHAR(255),
   description TEXT
 );
 
