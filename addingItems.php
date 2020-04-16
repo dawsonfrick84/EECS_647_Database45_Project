@@ -1,4 +1,3 @@
-<!-- <title>Adding Item Confirmation page</title>
 <?php
 $mysqli = new mysqli("mysql.eecs.ku.edu", "dawsonfrick84", "aij4eeph", "dawsonfrick84");
 
@@ -6,8 +5,11 @@ $mysqli = new mysqli("mysql.eecs.ku.edu", "dawsonfrick84", "aij4eeph", "dawsonfr
 
 /* check connection  */
 if ($mysqli->connect_errno) {
-    printf("Connect failed: %s\n", $mysqli->connect_error);
+    printf("Connect failed: %s<br>", $mysqli->connect_error);
     exit();
+}
+else{
+  //printf("Connection to mySQL successful!");
 }
 
 
@@ -20,26 +22,32 @@ $instock  = $_POST["In-Stock"];
 $picture  = $_POST["Picture"];
 $description = $_POST["Description"];
 
- $result = $mysqli->query("SELECT username FROM Users WHERE username  = '$username'");
-
-    if ($result->num_rows === 0)
+$write=true;
+    if($result = $mysqli->query("SELECT username FROM Users"))
     {
-        echo "User's name not found.<br>";
-    }
-    else 
-    {
-      if ( $itemname == NULL && ($description == NULL || $description == "") && $instock < 0)
-      {
-          echo "INVALID ITEM. NEED MORE INFORMATION.<br>";
-      }
-      elseif (!$username == "" && $result->num_rows > 0)
-      {
-          $sql = $mysqli->query("INSERT INTO Items (name,stock,price,picture,description,ISBN) VALUES ('$itemname','$instock','$price','$picture','$description','$isbn')");
-          echo "<h2>Item added.</h2><br>";$price
+    while ($row = $result->fetch_assoc()) {
+        if ($row["username"]==$username){
+          $write=true;
+        }
       }
 
-    }
+      if ( $write==false)
+      {
+          echo "INVALID USERNAME";
+      }
+      else
+      {
+        if($mysqli->query("INSERT INTO Items (name, stock, price, picture, description, ISBN) VALUES ('$itemname', $instock, $price,'$picture','$description', '$isbn')") === TRUE) {
+        echo "<h2>Item added.</h2><br>"; //$price
+        }
+        else{
+        printf("Error: " . $sql . "<br>" . $conn->error);
+        }
 
+      }
+
+    $result->free();
+    }
 /* close connection */
 $mysqli->close();
-?> -->
+?>
