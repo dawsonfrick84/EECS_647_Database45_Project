@@ -46,3 +46,5 @@ ON Orders.user=Users.username
 ORDER BY Users.username;
 
 SELECT * FROM Users;
+
+INSERT INTO Items (name, stock, price, rating, picture, description) VALUES ('Dixon Ticonderoga Pencils', 35, 10, 5, 'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcS-ZuI-EhlXn7RiuunPezDwoyHbk2OkMN-f7fxCQXX0lzziIMdstQYT3nUg707ra2BeX6BeqUJb&usqp=CAc', 'Pre-sharepened number 2 pencils')
