@@ -11,32 +11,26 @@
         User's name:
         <br>
         <input name="username" required type="text">
-        <br>   
-        Item_ID:
-        <input name="Item_ID" required type="number">
         <br>
         Price:
-        <input name="ItemPrice" required type="number">
+        <input name="ItemPrice" required type="number" step=".01" min=.01>
         <br>
-        Name:
+        Item Name:
         <input name="NameItem" required type="text">
         <br>
+        ISBN (if textbook):
+        <input name="ISBN" type="text" pattern=".{0}|([0-9]{10,13})" title="Leave blank or must be 10-13 digits">
+        <br>
         In-Stock:
-        <input name="In-Stock" required type="number">
-        <br>   
+        <input name="In-Stock" required type="number" step="1" min="1" pattern="\d*">
+        <br>
         Picture:
         <input name="Picture" required type="url">
         <br>
         Description:
         <input type="text" required name="Description" style="width:1000px; height:25px">
         <br>
-        Review:
-        <input type="text" required name="Review" style="width:1000px; height:25px">
-        <br>
-        Rating:
-        <input name="Rating" required type="number">
-        <br>
-    
+
         <input type="submit" value="Submit">
         &nbsp;&nbsp;
         <input type="reset" value="Reset">
