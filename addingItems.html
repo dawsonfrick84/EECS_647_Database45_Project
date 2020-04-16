@@ -5,35 +5,41 @@
 </head>
 
 <body>
-
+    <link rel="stylesheet" type="text/css" href="styleAddingItem.css">
     <form action="addingItems.php" method="post">
+        <div class="a">
         <br>
         User's name:
         <br>
-        <input name="username" required type="text">
-        <br>
+        <input type="username" id="user" name="user" required pattern="\S+" title="No spaces" style="width:200px; height:25px" >
+        <br><br>
         Price:
-        <input name="ItemPrice" required type="number" step=".01" min=.01>
-        <br>
+        &emsp;&emsp;&emsp;&emsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <input name="ItemPrice" id="ItemPrice" required type="number" step=".01" min=.01>
+        <br><br>
         Item Name:
-        <input name="NameItem" required type="text">
-        <br>
-        ISBN (if textbook):
-        <input name="ISBN" type="text" pattern=".{0}|([0-9]{10,13})" title="Leave blank or must be 10-13 digits">
-        <br>
+        &emsp;&emsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <input name="ItemName" id="ItemName" required type="text">
+        <br><br>
+        ISBN (if textbook):&nbsp;&nbsp;
+        <input name="ISBN" id="ISBN" type="number" pattern=".{0}|([0-9]{10,13})" title="Leave blank or must be 10-13 digits">
+        <br><br>
         In-Stock:
-        <input name="In-Stock" required type="number" step="1" min="1" pattern="\d*">
-        <br>
+        &emsp;&emsp;&emsp;&emsp;&nbsp;&nbsp;
+        <input name="In-Stock" id="In-Stock" required type="number" step="1" min="1" pattern="\d*">
+        <br><br>
         Picture:
-        <input name="Picture" required type="url">
-        <br>
+        &emsp;&emsp;&emsp;&emsp;&emsp;
+        <input name="Picture" id="Picture" required type="url" title="Enter a picture's url">
+        <br><br>
         Description:
-        <input type="text" required name="Description" style="width:1000px; height:25px">
-        <br>
-
-        <input type="submit" value="Submit">
+        &emsp;&emsp;&emsp;&nbsp;
+        <input type="text" required name="Description" id="Description" style="width:1000px; height:40px">
+        <br><br><br>
+        </div>
+        <input type="submit" value="Submit" style="width:100px; height:25px" >
         &nbsp;&nbsp;
-        <input type="reset" value="Reset">
+        <input type="reset" value="Reset"style="width:100px; height:25px" >
     </form>
 </body>
 
