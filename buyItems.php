@@ -40,8 +40,12 @@ echo"
   </div>
   <div class='clear'></div><br><br><br>
   <p><b>Checkout</b></p>
-  <b>Username:&nbsp&nbsp</b><input type='text' id='user' name='user'><br><br>
-  <b>Password:&nbsp&nbsp</b><input type='password' id='pass' name='pass'><br><br><br>
+  <b>Username:&nbsp&nbsp</b><input type='text' id='user' name='user' required><br><br>
+  <b>Password:&nbsp&nbsp</b><input type='password' id='pass' name='pass' required><br><br>
+  <b>Street Address:&nbsp&nbsp</b><input type='text' id='address' name='address' required>
+  <b>Zip Code:<b>&nbsp&nbsp</b><input type='text' id='zip' name='zip' required>
+  <br><br>
+  <br>
 
   <p><b>Payment Options:</b> (for the sake of this project, don't enter real information. It won't be stored just in case)</p>
   <input type='radio' id='credit' name='payment' value='credit' unchecked>Credit Card

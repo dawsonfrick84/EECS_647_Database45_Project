@@ -1,13 +1,10 @@
 <?php
 $mysqli = new mysqli("mysql.eecs.ku.edu", "dawsonfrick84", "aij4eeph", "dawsonfrick84");
 $user=$_POST["user"];
+$email=$_POST["email"];
 $pass=$_POST["pass"];
-$street=$_POST["address"];
-$zip=$_POST["zip"];
-$address=$street . ", " . $zip;
 $shipping=$_POST["shipping"];
-$payment=$_POST["payment"];
-$cost = 0.00;
+$cost = 0;
 
 for($i=0; $i<500; $i++){
   $item_id[$i]=$_POST[""+$i];
@@ -15,8 +12,6 @@ for($i=0; $i<500; $i++){
   // printf("item id: %s<br>", $item_id[$i]);
   // printf("item q: %s<br>", $item_quantity[$i]);
 }
-
-
 if ($mysqli->connect_errno) {
     printf("Connect failed: %s<br>", $mysqli->connect_error);
     exit();
@@ -24,26 +19,6 @@ if ($mysqli->connect_errno) {
 else{
   //printf("Connection to mySQL successful!");
 }
-
-$success=false;
-$order_id=rand(100000000, 999999999);
-while($success=false){
-  $query1="SELECT order_id FROM Orders WHERE order_id=$order_id";
-  if ($result1 = $mysqli->query($query)) {
-  }
-  else{
-    printf("Error retrieving order_ids");
-  }
-  if(mysqli_num_rows($result1)==0){
-    $success=true;
-    $result1->free();
-  }
-  else{
-    $order_id=rand(100000000, 999999999);
-  }
-}
-printf("%s", $order_id);
-
   echo"
   <html>
       <head>
@@ -62,10 +37,10 @@ printf("%s", $order_id);
           }
       }
       if ($found==FALSE){
-        echo"<h1>User not found in the database...</h1>
+        echo"
         <h2><a href='index.html'>Create a New User</a></h2>
-        <h1>Or maybe you entered the wrong password</h1>
-        <h2><a href='javascript:history.back()'>Go Back</a></h2>
+        <h2><a href='addingItems.html'>Add Item</a></h2>
+        <h2><a href='javascript:history.back()'>Go Back to Shopping</a></h2>
         ";
       }
       else {
@@ -103,29 +78,12 @@ printf("%s", $order_id);
                   </tr>
                   ";
                   $cost=$cost +  $row2["price"]*$item_quantity[$i];
-                  $query3 = "UPDATE Items SET stock=stock-$item_quantity[$i] WHERE item_id=$i";
-                  if ($result3 = $mysqli->query($query3)) {
-                    printf("Updated stock");
-                  }
-                  else{
-                    printf("ERROR: Could not update stock!");
-                  }
-                  $query4="INSERT INTO Purchases (order_id, item_id, quantity) VALUES ($order_id, $i, $item_quantity[$i])";
-                  if ($mysqli->query($query4) === TRUE) {
-                    printf("Purchase added successfully<br>");
-                  }
-                  else {
-                    printf("Error: " . $sql . "<br>" . $conn->error);
-                  }
                 }
               }
             }
         }
-        else{
-          printf("Couldn't retrieve item info");
-        }
         echo"<tr><th style='text-align:left'>Shipping</th>";
-        $shipping_cost=0;
+
         if($shipping=="free"){
           echo"
           <td colspan='2'>5-Day Shipping</td>
@@ -138,7 +96,6 @@ printf("%s", $order_id);
           <td style='text-align:right'>3.00</td>
           </tr>";
           $cost=$cost+3.00;
-          $shipping_cost=3.00;
         }
         if($shipping=="overnight"){
           echo"
@@ -146,7 +103,6 @@ printf("%s", $order_id);
           <td style='text-align:right'>25.00</td>
           </tr>";
           $cost=$cost+25.00;
-          $shipping_cost=25.00;
         }
 
         echo"<tr><br></tr><tr><br></tr>
@@ -165,18 +121,7 @@ printf("%s", $order_id);
         <h3><a href='buyItems.php'>Shop For More School Supplies and Items</a></h3>
         <h3><a href='addingItems.html'>Add Items to the Store</a></h3>
         ";
-        $query5="INSERT INTO Orders (order_id, user, total, shipping, address, payment) VALUES ($order_id, '$user', $cost, $shipping_cost, '$address', '$payment')";
-        if ($mysqli->query($query5) === TRUE) {
-          printf("Order added successfully<br>");
-        }
-        else {
-          printf("Error: " . $query5 . "<br>" . $conn->error);
-        }
-        $_SESSION['post_data'] = $_POST;
-        header('Location: receipt.php', true, 307);
       }
-
-
       $result2->free();
       $result->free();
   }
@@ -184,6 +129,4 @@ printf("%s", $order_id);
 
 
   $mysqli->close();
-
-  exit;
 ?>

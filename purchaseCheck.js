@@ -83,6 +83,7 @@ function checkPurchase(){
 function reset(){
       document.getElementById("user").value = "";
       document.getElementById("pass").value = "";
+      document.getElementById("address").value = "";
       document.getElementById("shipping1").checked=false;
       document.getElementById("shipping2").checked=false;
       document.getElementById("shipping3").checked=false;
