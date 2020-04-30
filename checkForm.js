@@ -12,22 +12,22 @@ function checkSubmit(){
       return true;
     }
     else if(document.getElementById("user").value.length<5){
-      alert("Username must be five or more characters")
+      alert("Username must be five or more characters");
       return false;
       returnToPreviousPage();
     }
     else if(document.getElementById("pass").value.length<5){
-      alert("Password must be five or more characters")
+      alert("Password must be five or more characters");
       return false;
       returnToPreviousPage();
     }
     else if(document.getElementById("pass").value!=document.getElementById("conf_pass").value){
-      alert("Passwords do not match")
+      alert("Passwords do not match");
       return false;
       returnToPreviousPage();
     }
     else{
-      alert("Please enter all required fields")
+      alert("Please enter all required fields");
       return false;
       returnToPreviousPage();
     }
