@@ -15,13 +15,13 @@ echo"
     </head>
 <body>
 
-<script src='checkForm.js'></script>
+<script src='purchaseCheck.js'></script>
 <center><h1><center>Welcome to the School Supplies Store</center></h1></center>
 <center><h3><a href='index.html'>Return home</a>&emsp;
 <a href='addingItems.html'>Add Items to the Store</a></h3></center><br>
 <center><h3><center>Check out our selection of school supplies and textbooks</center></h3></center><br>
 <div id='items'>
-  <form action='showOrder.php' method='post' onsubmit='return checkSubmit();'>";
+  <form action='showOrder.php' method='post' onsubmit='return checkPurchase();'>";
 
     if ($result = $mysqli->query($query)) {
       //printf("Connection success<br>Passed in username: %s<br>", $user);
@@ -29,9 +29,9 @@ echo"
           echo"
           <figure id='1'>
            <b>Item ".$row["item_id"].": ".$row["name"]." </b><br>
-            <img class='item' src='".$row["picture"]."' width='125' height='125'><br>
-              <input type='checkbox' id='".$row["item_id"]."' name='".$row["name"]."' value='".$row["item_id"]."'>$".$row["price"]."<br>
-              Quantity: <input type='number' id='q".$row["item_id"]."' name='q".$row["name"]."' value='q".$row["item_id"]."' min='1' max='".$row["stock"]."' size=3><br>
+            <img class='item_pic' src='".$row["picture"]."' width='125' height='125'><br>
+              <input type='checkbox' class='item' id='".$row["item_id"]."' name='".$row["item_id"]."' value='".$row["item_id"]."' >$".$row["price"]."<br>
+              Quantity: <input type='number' class='quantity' id='q".$row["item_id"]."' name='q".$row["item_id"]."' value='q".$row["item_id"]."' min='1' max='".$row["stock"]."' size=3><br>
               Description: ".$row["description"]." <br>
             </figure>";
           }

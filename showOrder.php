@@ -5,6 +5,14 @@ $email=$_POST["email"];
 $pass=$_POST["pass"];
 $shipping=$_POST["shipping"];
 $cost = 0;
+
+for($i=0; $i<500; $i++){
+  $item_id[$i]=$_POST[""+$i];
+  $item_quantity[$i]=$_POST["q" . $i];
+  // printf("item id: %s<br>", $item_id[$i]);
+  // printf("item q: %s<br>", $item_quantity[$i]);
+}
+
   echo"
   <html>
       <head>
@@ -46,7 +54,7 @@ $cost = 0;
         <body>
           <h1>Order Confirmed!</h1>
           <h2>Order made by user:  " . $user . "!</h2>
-          <h1>Receipt</h1>
+          <h1><u>Receipt</u></h1>
 
         <table cellspacing='7.5'>
         <tr>
@@ -56,31 +64,51 @@ $cost = 0;
         <th>Sub Total</th>
         </tr>
         ";
-        echo"<tr><th>Shipping</th>";
+
+        $query2 = "SELECT item_id, name, price, stock FROM Items ORDER by item_id";
+
+        if ($result2 = $mysqli->query($query2)) {
+          //printf("Connection success<br>Passed in username: %s<br>", $user);
+            while ($row2 = $result2->fetch_assoc()) {
+              for($i=$row2["item_id"]; $i<=$row2["item_id"]; $i++){
+                if($row2["item_id"]==$item_id[$i]){
+                  echo"
+                  <tr><th style='text-align:left'>". $row2["name"] ."</th>
+                  <td style='text-align:right'> ". $item_quantity[$i] ." </td>
+                  <td style='text-align:right'> ". $row2["price"] ." </td>
+                  <td style='text-align:right'> ". $row2["price"]*$item_quantity[$i] ." </td>
+                  </tr>
+                  ";
+                }
+              }
+            }
+        }
+        echo"<tr><th style='text-align:left'>Shipping</th>";
 
         if($shipping=="free"){
           echo"
           <td colspan='2'>5-Day Shipping</td>
-          <td>0.00</td>
+          <td style='text-align:right'>0.00</td>
           </tr>";
         }
         if($shipping=="three"){
           echo"
           <td colspan='2'>3-Day Shipping</td>
-          <td>3.00</td>
+          <td style='text-align:right'>3.00</td>
           </tr>";
           $cost=$cost+3.00;
         }
         if($shipping=="overnight"){
           echo"
           <td colspan='2'>Overnight Shipping&nbsp&nbsp&nbsp&nbsp</td>
-          <td>25.00</td>
+          <td style='text-align:right'>25.00</td>
           </tr>";
           $cost=$cost+25.00;
         }
 
-        echo"<tr><td colspan='3'><b>TOTAL COST:&nbsp&nbsp&nbsp&nbsp</b></td>
-        <td><b>&nbsp&nbsp&nbsp$" . $cost . "</b></td>
+        echo"<tr><br></tr><tr><br></tr>
+        <tr><th style='text-align:left' colspan='3'><b><u>TOTAL COST:</b></u></th>
+        <td style='text-align:right'><u><b>$" . $cost . "</b></u></td>
         </tr>
         </table>
         <br><br><button onclick='printReceipt()'><b>Print Receipt</b></button>
