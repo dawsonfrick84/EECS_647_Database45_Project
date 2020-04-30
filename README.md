@@ -11,12 +11,19 @@ permissions BOOLEAN
 
 CREATE TABLE Orders
 (
-order_id INT PRIMARY KEY AUTO_INCREMENT,
+order_id INT PRIMARY KEY,
 user VARCHAR(255) NOT NULL,
 total DOUBLE,
 shipping DOUBLE,
 address VARCHAR(255) NOT NULL,
 payment VARCHAR(255) NOT NULL
+);
+
+CREATE TABLE Purchases
+(
+order_id INT,
+item_id INT,
+quantity INT
 );
 
 
