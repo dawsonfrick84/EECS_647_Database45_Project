@@ -115,7 +115,7 @@ printf("%s", $order_id);
                     printf("Purchase added successfully<br>");
                   }
                   else {
-                    printf("Error: " . $sql . "<br>" . $conn->error);
+                    printf("Error: " . $query4 . "<br>" . $conn->error);
                   }
                 }
               }
