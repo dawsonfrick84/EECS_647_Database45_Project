@@ -19,6 +19,16 @@ if ($mysqli->connect_errno) {
  echo "</br>";
  echo "</br>";
  echo "<table border=\"2\">";
+ echo       "<tr>";
+ echo             "<th>Item Id</th>";
+ echo             "<th>Item Name</th>";
+ echo             "<th>Stock</th>";
+ echo             "<th>Price</th>";
+ echo             "<th>ISBN</th>";
+ echo             "<th>Picture</th>";
+ echo             "<th>Description</th>";
+ echo             "<th>Check to delete post(s)</th>";
+ echo       "</tr>";
   if($result = $mysqli->query($posts)) {
     /* fetch associative array */
     while($row = $result->fetch_assoc()) 
