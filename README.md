@@ -31,9 +31,9 @@ CREATE TABLE Reviews
 (
 post_id INT PRIMARY KEY AUTO_INCREMENT,
 rating DOUBLE,
-total_reviews INT,
 content TEXT,
-item_id INT
+item_id INT,
+username VARCHAR(255)
 );
 
 CREATE TABLE Items
