@@ -1,4 +1,4 @@
-<title>View User's Reviews</title>
+<title>View User's Items</title>
 <?php
 $mysqli = new mysqli("mysql.eecs.ku.edu", "dawsonfrick84", "aij4eeph", "dawsonfrick84");
 
