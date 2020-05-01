@@ -30,6 +30,19 @@ font-size: 150%;
 background-color: lightgreen;
 }
 
+input 
+{
+  border: 1.7px solid #000;
+  box-shadow:inset 0 0 1.5px 1.5px #888;
+  background: #fff;
+}
+
+button
+{
+  border: 1.7px solid #000;
+  box-shadow:inset 0 0 1.5px 1.5px #888;
+  background: #fff;
+}
 
 input:hover 
 {
