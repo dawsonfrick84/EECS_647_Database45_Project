@@ -11,12 +11,12 @@
 <link rel="stylesheet" type="text/css" href="style.css">
 <script src="checkForm.js"></script>
   <form action="CreateUser.php" method="post" onsubmit="return checkSubmit();">
-    <b>Username:&nbsp&nbsp</b><input type="username" id="user" name="user" required pattern="\S+" title="No spaces"><br><br>
-    <b>Password:&nbsp&nbsp</b><input type="password" id="pass" name="pass" required pattern="^(?=.*\d)(?=.*[a-z])\S+" title="Must have at least one number and one (lowercase) letter AND no spaces"><br><br>
-    <b>Confirm Password:&nbsp&nbsp</b><input type="password" id="conf_pass" name="conf_pass" required><br><br>
-    <b>Email:&nbsp&nbsp</b><input type="email" id="email" name="email" required><br><br>
-    <input type="submit" value="Submit">
+    <b>Username:&nbsp&nbsp</b><input type="username" id="user" name="user" required pattern="\S+" title="No spaces" style="width:200px; height:25px" ><br><br>
+    <b>Password:&nbsp&nbsp</b><input type="password" id="pass" name="pass" required pattern="^(?=.*\d)(?=.*[a-z])\S+" title="Must have at least one number and one (lowercase) letter AND no spaces" style="width:200px; height:25px"><br><br>
+    <b>Confirm Password:&nbsp&nbsp</b><input type="password" id="conf_pass" name="conf_pass" required style="width:200px; height:25px"><br><br>
+    <b>Email:&nbsp&nbsp</b><input type="email" id="email" name="email" required style="width:200px; height:25px"><br><br>
+    <input type="submit" value="Submit" style="width:100px; height:25px">
   </form>
-  <button onclick="reset()">Reset Fields</button>
+  <button onclick="reset()" style="width:100px; height:25px" >Reset Fields</button >
 </body>
 </html>

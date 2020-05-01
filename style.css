@@ -6,6 +6,7 @@ body
     background-attachment: fixed;
     height:100%;
     width:100%;
+    
 }
 
 p
@@ -23,4 +24,19 @@ img
     margin-right: auto;
 }
 
+a:hover, a:active
+{
+font-size: 150%;    
+background-color: lightgreen;
+}
 
+
+input:hover 
+{
+  box-shadow: 7px 7px 24px  #333dd0 ;
+}
+
+button:hover
+{
+box-shadow: 7px 7px 24px  #333dd0 ;
+}
