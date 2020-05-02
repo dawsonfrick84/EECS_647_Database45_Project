@@ -13,6 +13,10 @@ $username = $_POST['username'];
 $pass   =  $_POST["pass"];
 $item_id=$_POST["item_id"];
 
+$overall_rating;
+$sum_rating=0;
+$count=0;
+
 $pass_query = "SELECT username, password FROM Users WHERE username='$username'";
 $write=false;
 if($pass_result = $mysqli->query($pass_query))
@@ -54,6 +58,8 @@ while ($row = $pass_result->fetch_assoc())
        $rating=$row["rating"];
        $content=$row["content"];
        $user=$row["username"];
+       $count++;
+       $sum_rating=$sum_rating+$rating;
        echo"<tr>
        <td style='text-align:center'>". $post_id ."</td>
        <td style='text-align:right'>". $rating ."</td>
@@ -62,6 +68,8 @@ while ($row = $pass_result->fetch_assoc())
        </tr>";
      }
      $result->free(); /* free result set */
+     $overall_rating=$sum_rating/$count;
+     echo"<b>Item Rating: ". $overall_rating ." out of 5</b>";
    }
    else{
      printf("Error: " . $reviews . "<br>" . $conn->error);

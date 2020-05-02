@@ -55,7 +55,7 @@ View Reviews for this item:
 
         $result->free();
         }
-        echo"<form action='viewReview.php' method='POST'>";
+        echo"<form action='deleteReview.php' method='POST'>";
         $query2 = "SELECT username FROM Users WHERE permissions=1 ORDER BY username ASC";
         if ($result = $mysqli->query($query2))
         {
@@ -71,7 +71,7 @@ View Reviews for this item:
             echo "</select>
             <input type='hidden' id='permissions' name='permissions' value='true'>
             <br>Password: <input type='password' id='pass' name='pass' required><br>
-            &emsp;&emsp;&emsp;&emsp;&emsp;<input type='submit' value='View All Items'>
+            &emsp;&emsp;&emsp;&emsp;&emsp;<input type='submit' value='View All Reviews'>
             </form>";
           }
 
