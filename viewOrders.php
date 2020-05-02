@@ -134,6 +134,12 @@ else{
    else{
      printf("Error: " . $posts . "<br>" . $conn->error);
    }
+   echo"<h3><a href='index.html'>Return Home (Create User)</a></h3>
+   <h3><a href='buyItems.php'>Shop School Supplies and Items</a></h3>
+   <h3><a href='addingItems.html'>Add Items to the Store</a></h3>
+   <h3><a href='selectUserItems.php'>View Your Items and Delete</a></h3>
+   <h3><a href='selectUserOrders.php'>View Your Orders and Delete</a></h3>
+   <h3><a href='reviews.php'>Reviews</a></h3>";
 }
 else{
   echo"<h1>The password you entered is incorrect!</h1>

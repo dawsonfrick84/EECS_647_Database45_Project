@@ -38,9 +38,12 @@ else{
       }
       if ($found==FALSE){
         echo"
-        <h2><a href='index.html'>Create a New User</a></h2>
+        <h2><a href='index.html'>Create a New User (Return Home)</a></h2>
         <h2><a href='addingItems.html'>Add Item</a></h2>
         <h2><a href='javascript:history.back()'>Go Back to Shopping</a></h2>
+        <h2><a href='selectUserItems.php'>View Your Items and Delete</a></h2>
+        <h2><a href='selectUserOrders.php'>View Your Orders and Delete</a></h2>
+        <h2><a href='reviews.php'>Reviews</a></h2>
         ";
       }
       else {
@@ -117,9 +120,12 @@ else{
         }
         </script>
         <br><br>
-        <h3><a href='index.html'>Return to Home Page</a></h3>
-        <h3><a href='buyItems.php'>Shop For More School Supplies and Items</a></h3>
+        <h3><a href='index.html'>Return Home (Create User)</a></h3>
+        <h3><a href='buyItems.php'>Shop School Supplies and Items</a></h3>
         <h3><a href='addingItems.html'>Add Items to the Store</a></h3>
+        <h3><a href='selectUserItems.php'>View Your Items and Delete</a></h3>
+        <h3><a href='selectUserOrders.php'>View Your Orders and Delete</a></h3>
+        <h3><a href='reviews.php'>Reviews</a></h3>
         ";
       }
       $result2->free();
