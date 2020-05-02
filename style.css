@@ -1,12 +1,11 @@
 body
-{    
+{
     background-image: url('images/main_background_image.jpg');
-    background-size:100%;
-    background-repeat: repeat-x;
+    background-size: cover;
+    background-repeat: no-repeat;
     background-attachment: fixed;
     height:100%;
     width:100%;
-    
 }
 
 p
@@ -17,7 +16,7 @@ p
     font-size: 20pt;
 }
 
-img 
+img
 {
     display: block;
     margin-left: auto;
@@ -26,11 +25,11 @@ img
 
 a:hover, a:active
 {
-font-size: 150%;    
+font-size: 150%;
 background-color: lightgreen;
 }
 
-input 
+input
 {
   border: 1.7px solid #000;
   box-shadow:inset 0 0 1.5px 1.5px #888;
@@ -44,7 +43,7 @@ button
   background: #fff;
 }
 
-input:hover 
+input:hover
 {
   box-shadow: 7px 7px 24px  #333dd0 ;
 }
