@@ -16,10 +16,8 @@ if(!isset($_GET['id']))
 else
 {
   $id = $_GET['id'];
-  echo "Id is $id";
   
   $query = " DELETE FROM Items WHERE item_id = $id ";
-  echo "Here1";
   if ($result = $mysqli->query($query))
   {
     echo "Item was deleted successfully.";
