@@ -47,9 +47,12 @@ else{
      /* fetch associative array */
      while($row = $result->fetch_assoc())
      {
-       echo"<table border=\"2\"><tr>
-             <th>Check to delete</th>
-             <th>Order Id</th>
+       echo"<table border=\"2\"><tr>";
+             if($permissions==true){
+               echo"<th></th>";
+               echo"<th>User</th>";
+             }
+       echo"<th>Order Id</th>
              <th>Total</th>
              <th>Cost</th>
              <th>Shipping</th>
@@ -66,10 +69,12 @@ else{
          $cost=$total-$shipping;
          $purchases = "SELECT order_id, item_id, quantity FROM Purchases WHERE order_id='$order_id' ORDER BY order_id";
 
-       echo"<tr><td>
-             <input type='checkbox' name='checkbox[]' value=''>";
+       echo"<tr>";
              if($permissions==true){
-               echo"USER: ". $user ." ";
+               echo"<td td style='text-align:center'>
+                      <button onclick=window.location.href='deleteOrder.php?id=".$order_id."'>Delete</button>
+
+                      <td>". $user ."  </td>";
              }
              echo"</td><td style='text-align:center'>
              ". $order_id ."
