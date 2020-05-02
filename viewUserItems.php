@@ -43,18 +43,20 @@ else
   ". $username . "
   </br>
   </br>
-  <form action='DeleteInStoreItem.php' method='post'>
   <table border=\"2\">
          <tr>
-               <th>Check to delete</th>
-               <th>Item Id</th>
+               <th></th>";
+               if($permissions==true){
+                 echo"<th>User</td>";
+               }
+               echo"<th>Item Id</th>
                <th>Item Name</th>
                <th>Stock</th>
                <th>Price</th>
                <th>ISBN</th>
                <th>Picture</th>
          </tr>";
-   if($result = $mysqli->query($posts)) 
+   if($result = $mysqli->query($posts))
    {
      /* fetch associative array */
      while($row = $result->fetch_assoc())
@@ -68,10 +70,10 @@ else
          $picture = $row["picture"];
          $description = $row["description"];
 
-       echo"<tr><td>
-             <input type='checkbox' name='checkbox[]' value='$item_id' />";
+       echo"<tr><td td style='text-align:center'>
+              <button onclick=window.location.href='deleteItem.php?id=".$item_id."'>Delete</button>";
              if($permissions==true){
-               echo"USER: ". $row["username"] ." ";
+               echo"<td>". $row["username"] ." </td>";
              }
              echo"</td><td>
              ". $item_id ."
@@ -85,16 +87,14 @@ else
              ". $ISBN ."
              </td><td>
              <img class='item_pic' src='".$row["picture"]."' width='75' height='75'>
-             </td>
-             </tr><tr><td colspan='7'>
+	            </td>
+             </tr><tr><td colspan='8'>
              ". $description ."
        </td></tr>";
      }
      $result->free(); /* free result set */
    }
   echo"</table>";
-  echo"<input type='submit' name='formSubmit' value='Delete' />";
-  echo"</form>";
 
   //echo("<button onclick=\"location.href='DeleteInStoreItem.php'\">Delete Checked Item(s)</button>");
 }

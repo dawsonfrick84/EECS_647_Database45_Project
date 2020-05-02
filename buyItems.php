@@ -17,8 +17,11 @@ echo"
 
 <script src='purchaseCheck.js'></script>
 <center><h1><center>Welcome to the School Supplies Store</center></h1></center>
-<center><h3><a href='index.html'>Return home</a>&emsp;
-<a href='addingItems.html'>Add Items to the Store</a></h3></center><br>
+<center><h3><a href='index.html'>Create User (Return home)</a>&emsp;
+<a href='addingItems.html'>Add Items to the Store</a>&emsp;
+<a href='selectUserItems.php'>View Your Items and Delete</a><br>
+<a href='selectUserOrders.php'>View Your Orders and Delete</a>&emsp;
+<a href='reviews.php'>Create and View Reviews</a></center></h3><br>
 <center><h3><center>Check out our selection of school supplies and textbooks</center></h3></center><br>
 <div id='items'>
   <form id='1' action='showOrder.php' method='post' onsubmit='return checkPurchase();'>";
