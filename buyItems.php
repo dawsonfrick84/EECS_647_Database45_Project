@@ -31,7 +31,7 @@ echo"
            <b>Item ".$row["item_id"].": ".$row["name"]." </b><br>
             <img class='item_pic' src='".$row["picture"]."' width='125' height='125'><br>
               <input type='checkbox' class='item' id='".$row["item_id"]."' name='".$row["item_id"]."' value='".$row["item_id"]."' >$".$row["price"]."<br>
-              Quantity: <input type='number' class='quantity' id='q".$row["item_id"]."' name='q".$row["item_id"]."' value='q".$row["item_id"]."' min='1' max='".$row["stock"]."' size=3><br>
+              Quantity: <input type='number' class='quantity' id='q".$row["item_id"]."' name='q".$row["item_id"]."' value='q".$row["item_id"]."' step=1 min='1' max='".$row["stock"]."' size=3><br>
               Description: ".$row["description"]." <br>
             </figure>";
           }
