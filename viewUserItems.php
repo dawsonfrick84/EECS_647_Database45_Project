@@ -43,6 +43,7 @@ else
   ". $username . "
   </br>
   </br>
+  <form action='DeleteInStoreItem.php' method='post'>
   <table border=\"2\">
          <tr>
                <th>Check to delete</th>
@@ -68,7 +69,7 @@ else
          $description = $row["description"];
 
        echo"<tr><td>
-             <input type='checkbox' name='checkbox[]' value=''>";
+             <input type='checkbox' name='checkbox[]' value='$item_id' />";
              if($permissions==true){
                echo"USER: ". $row["username"] ." ";
              }
@@ -92,8 +93,10 @@ else
      $result->free(); /* free result set */
    }
   echo"</table>";
+  echo"<input type='submit' name='formSubmit' value='Delete' />";
+  echo"</form>";
 
-  echo("<button onclick=\"location.href='DeleteInStoreItem.php'\">Delete Checked Item(s)</button>");
+  //echo("<button onclick=\"location.href='DeleteInStoreItem.php'\">Delete Checked Item(s)</button>");
 }
 else
 {

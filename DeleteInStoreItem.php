@@ -10,6 +10,23 @@ if ($mysqli->connect_errno)
 }
 
   $ItemsGonnaDelete = $_POST["checkbox[]"];
+
+/*  $attempt = $_POST["checkbox[]"];
+  if(empty($attempt))
+  {
+    echo "Nope";
+  }
+  else
+  {
+    $N = count($attempt);
+    echo "You selected $N options: ";
+    for ($i = 0; $i < $N; $i++)
+    {
+      echo($attempt[$i] . " ");
+    }
+  }
+ */
+
   if($ItemsGonnaDelete == FALSE) 
   {
     echo "Please select at least 1 item to delete.<br>";
