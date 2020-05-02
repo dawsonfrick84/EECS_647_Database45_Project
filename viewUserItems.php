@@ -29,10 +29,12 @@ if($write==true){
     $posts = "SELECT item_id, name, stock, price, ISBN, picture, description, username FROM Items ORDER BY item_id";
   }
 
-if($permissions==true){
+if($permissions==true)
+{
   echo"Here are the items of ALL users:";
 }
-else{
+else
+{
   echo "Here are the items of the user you selected:";
 }
   echo"</br>
@@ -41,9 +43,10 @@ else{
   ". $username . "
   </br>
   </br>
+  <form action='DeleteInStoreItem.php' method='post'>
   <table border=\"2\">
          <tr>
-                <th>Check to delete</th>
+               <th>Check to delete</th>
                <th>Item Id</th>
                <th>Item Name</th>
                <th>Stock</th>
@@ -51,7 +54,8 @@ else{
                <th>ISBN</th>
                <th>Picture</th>
          </tr>";
-   if($result = $mysqli->query($posts)) {
+   if($result = $mysqli->query($posts)) 
+   {
      /* fetch associative array */
      while($row = $result->fetch_assoc())
      {
@@ -65,7 +69,7 @@ else{
          $description = $row["description"];
 
        echo"<tr><td>
-             <input type='checkbox' name='checkbox[]' value=''>";
+             <input type='checkbox' name='checkbox[]' value='$item_id' />";
              if($permissions==true){
                echo"USER: ". $row["username"] ." ";
              }
@@ -89,8 +93,13 @@ else{
      $result->free(); /* free result set */
    }
   echo"</table>";
+  echo"<input type='submit' name='formSubmit' value='Delete' />";
+  echo"</form>";
+
+  //echo("<button onclick=\"location.href='DeleteInStoreItem.php'\">Delete Checked Item(s)</button>");
 }
-else{
+else
+{
   echo"<h1>The password you entered is incorrect!</h1>
   <h2><a href='javascript:history.back()'>Go Back</a></h2>
   ";
