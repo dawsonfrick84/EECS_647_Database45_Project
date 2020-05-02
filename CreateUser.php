@@ -10,7 +10,7 @@ $pass=password_hash($_POST["pass"], PASSWORD_DEFAULT);
       </head>
   <body>
   <h1>User Not Created</h1><br>
-  <link rel='stylesheet' type='text/css' href='style.css'>
+  <link rel='stylesheet' type='text/css' href='style.css?v={random number/string}'>
   ";
   if ($mysqli->connect_errno) {
       printf("Connect failed: %s<br>", $mysqli->connect_error);

@@ -5,7 +5,7 @@ echo"
 
 <head>
     <title>Reviews</title>
-    <link rel='stylesheet' href='Style1.css'>
+    <link rel='stylesheet' href='Style1.css?v={random number/string}'>
 </head>
 <center><h1>View and Delete Orders</h1></center><br>
 <body>
