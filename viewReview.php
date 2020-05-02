@@ -11,7 +11,11 @@ $permissions=$_POST['permissions'];
 
 $username = $_POST['username'];
 $pass   =  $_POST["pass"];
+$item_id=0;
 $item_id=$_POST["item_id"];
+if($item_id==0){
+  $item_id=$_GET["item_id"];
+}
 
 $overall_rating;
 $sum_rating=0;
