@@ -1,23 +1,15 @@
-<title>Delete Item</title>
-<?php
-
-$mysqli = new mysqli("mysql.eecs.ku.edu", "dawsonfrick84", "aij4eeph", "dawsonfrick84");
-
-if ($mysqli->connect_errno)
-{
+<title>Delete Item</title> <?php $mysqli = new 
+mysqli("mysql.eecs.ku.edu", "dawsonfrick84", "aij4eeph", 
+"dawsonfrick84"); if ($mysqli->connect_errno) {
   printf("Connect failed: %s\n", $mysqli->connect_error);
   exit();
 }
-
-if(!isset($_GET['id']))
-{
+if(!isset($_GET['id'])) {
   echo "Error! Empty Id!<br>";
 }
-else
-{
+else {
   $id = $_GET['id'];
   echo "ID is $id";
-
   $query = " DELETE FROM Items WHERE item_id = $id ";
   if ($result = $mysqli->query($query))
   {
@@ -28,8 +20,5 @@ else
   {
     printf("Error: " . $query . "<br>" . $conn->error);
   }
-
 }
-
-$mysqli->close();
-?>
+$mysqli->close(); ?>
