@@ -87,8 +87,9 @@ else
              ". $ISBN ."
              </td><td>
              <img class='item_pic' src='".$row["picture"]."' width='75' height='75'>
-	            </td>
-             </tr><tr><td colspan='8'>
+
+             </td>
+             </tr><tr><td colspan='7'>
              ". $description ."
        </td></tr>";
      }
