@@ -57,3 +57,5 @@ INSERT INTO Items (username, name, stock, price, rating, picture, description) V
 INSERT INTO Items (username, name, stock, price, rating, picture, description) VALUES ('admin', 'iClicker', 100, 66.50, 3.5, 'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTayuuBOYe16LPaohPE_EXqeZ_LEKBkdGRgN_Ykb1VxIo-uQp8ua3yrrJgQYNufHrocHkNAfQ&usqp=CAc', 'Used student remotes');
 
 INSERT INTO Items (username, name, stock, price, rating, picture, description, ISBN) VALUES ('admin', 'Database Systems: The Complete Book', 125, 29.99, 2.5, 'https://images-na.ssl-images-amazon.com/images/I/51JtltOJPVL._SX353_BO1,204,203,200_.jpg', '2nd Edition, by Hector Garcia-Molina, Jeff Ullman, and Jennifer Widom, Prentice Hall, 2008.', '9780131873254');
+
+INSERT INTO `Reviews`(`rating`, `content`, `item_id`, `username`) VALUES (5, 'Very nice pencils!', 1, 'dawson')
