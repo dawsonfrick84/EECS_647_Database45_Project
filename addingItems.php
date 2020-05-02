@@ -32,7 +32,8 @@ if($result = $mysqli->query($query))
   }
   if ( $write==false)
   {
-      echo "INVALID USERNAME";
+      echo "<h1>INVALID USERNAME AND/OR PASSWORD</h1>
+      <h2><a href='javascript:history.back()'>Go Back</a></h2>";
   }
   else
   {

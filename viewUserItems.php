@@ -47,7 +47,7 @@ else
          <tr>
                <th></th>";
                if($permissions==true){
-                 echo"<th>User</td>";
+                 echo"<th>User</th>";
                }
                echo"<th>Item Id</th>
                <th>Item Name</th>
@@ -71,7 +71,7 @@ else
          $description = $row["description"];
 
        echo"<tr><td td style='text-align:center'>
-              <button onclick=window.location.href='deleteItem.php?id=".$item_id."'>Delete</button>";
+             <button onclick=window.location.href='deleteItem.php?id=".$item_id."'>Delete</button>";
              if($permissions==true){
                echo"<td>". $row["username"] ." </td>";
              }
@@ -96,6 +96,12 @@ else
      $result->free(); /* free result set */
    }
   echo"</table>";
+  echo"<h3><a href='index.html'>Return Home (Create User)</a></h3>
+  <h3><a href='buyItems.php'>Shop School Supplies and Items</a></h3>
+  <h3><a href='addingItems.html'>Add Items to the Store</a></h3>
+  <h3><a href='selectUserItems.php'>View Your Items and Delete</a></h3>
+  <h3><a href='selectUserOrders.php'>View Your Orders and Delete</a></h3>
+  <h3><a href='reviews.php'>Reviews</a></h3>";
 
   //echo("<button onclick=\"location.href='DeleteInStoreItem.php'\">Delete Checked Item(s)</button>");
 }
