@@ -26,28 +26,27 @@ View Reviews for this item:
                   }
 
                 echo"
-                <input type='submit' value='SUBMIT'></select></form><br><br>
+                </select><input type='submit' value='SUBMIT'></form><br><br>
 
-                <form action='viewReview.php' method='POST'>
+
+                <form action='addReview.php' method='POST'>
                 Username:
                 <input type='text' id='username' name='username' required><br>
                 Password:
-                <input type='password' id='username' name='username' required><br>
-                <u>Please choose the item you want to review:</u><br>
-                <select name='item_id'><br><br>";
+                <input type='password' id='pass' name='pass' required><br>
+                <u>Please choose the item you want to review:</u><br><br>
+                <select name='item_name'>";
                 if($result2 = $mysqli->query($query)){
                   while ($row2 = $result2->fetch_assoc())
                   {
                   $item_name = $row2["name"];
-                  $item_id = $row["item_id"];
-                  echo "<option value=".$item_id."> ". $item_name ." </option>";
+                  echo "<option> ". $item_name ." </option>";
                   }
                 }
 
 
-            echo "</select>
-
-            <br>Write Review:<br>
+            echo"</select><br>
+            Write Review:<br>
             <input type='text' id='review' name='review' required size='100'><br>
             Rating:
             <input type='number' id='rating' name='rating' min=1 max=5 step=1 required size=3> <br>

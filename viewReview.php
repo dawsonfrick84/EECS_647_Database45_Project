@@ -35,7 +35,7 @@ while ($row = $pass_result->fetch_assoc())
     }
    }
 
-  $reviews = "SELECT post_id, rating, content, username FROM Reviews where item_id=$item_id";
+  $reviews = "SELECT post_id, rating, content, username FROM Reviews WHERE item_id=$item_id";
 
 
   echo "Here are reviews for the item you selected: <b>". $item_name ."</b><br><br>";
