@@ -85,6 +85,8 @@ else
              ". $ISBN ."
              </td><td>
              <img class='item_pic' src='".$row["picture"]."' width='75' height='75'>
+	     </td><td>
+	     <a href='deleteItem.php?id=".$item_id."'>Delete</a> 
              </td>
              </tr><tr><td colspan='7'>
              ". $description ."
